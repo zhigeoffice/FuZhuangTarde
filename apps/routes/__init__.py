@@ -11,3 +11,4 @@ from flask import Blueprint
 Base_blue = Blueprint('Base',__name__)
 
 from . import main
+from . import shejitu

@@ -1,0 +1,13 @@
+{
+  "name": "fuzhuangxitong",
+  "version": "1.0.0",
+  "filepath": "F:/files",
+  "imgpath": {
+    "shejitu":"IMG/shejitu",
+    "shengchantu":"IMG/shengchantu",
+    "sucaitu":"IMG/sucaitu",
+    "chanpinpeijian":"IMG/chanpinpeijian",
+    "yulantu":"IMG/yulantu",
+    "other":"IMG/other"
+  }
+}

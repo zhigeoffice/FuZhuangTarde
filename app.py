@@ -15,17 +15,18 @@ import os
 from flask_migrate import Migrate
 
 migrate = Migrate()
-from models import base
+
 
 def caeate_app():
-    app = Flask(__name__,
-                template_folder=os.path.join(config.BASE_PATH,'templates'),
-                static_folder=os.path.join(config.BASE_PATH,'static'))
+    fun_app = Flask(__name__,
+                    template_folder=os.path.join(config.BASE_PATH, 'templates'),
+                    static_folder=os.path.join(config.BASE_PATH, 'static'))
 
-    app.config.from_object(config)
-    configure_uploads(app, files)
-    db.init_app(app)
-    migrate.init_app(app, db)
-    return app
+    fun_app.config.from_object(config)
+    configure_uploads(fun_app, files)
+    db.init_app(fun_app)
+    migrate.init_app(fun_app, db)
+    return fun_app
+
 
 app = caeate_app()

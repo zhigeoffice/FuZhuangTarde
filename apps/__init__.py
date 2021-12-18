@@ -6,6 +6,8 @@
 @Email   : zhigeoffice@gmail.com
 @Software: PyCharm
 """
+from depend.conf import conf
+
 from app import app
 from .routes import Base_blue
 
