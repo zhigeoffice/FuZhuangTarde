@@ -24,7 +24,7 @@ class BaseOrder(db.Model):
     dealnum = db.Column(db.String(100))  # 交易编号
     staff_id = db.Column(db.Integer)  # 绑定员工
     address = db.Column(db.String(100))  # 地址
-    creation_data = db.Column(db.DateTime, default=datetime.datetime.now)
+    create_time = db.Column(db.DateTime, default=datetime.datetime.now)
     note = db.Column(db.String(255)) # 备注
 
 
@@ -40,7 +40,7 @@ class BaseCargo(db.Model):
     count = db.Column(db.Integer)  # 数量
     shejitu = db.Column(db.String(100))  # 设计图名称
     shengchantu = db.Column(db.String(100))  # 生产图名称
-    creation_data = db.Column(db.DateTime, default=datetime.datetime.now)
+    create_time = db.Column(db.DateTime, default=datetime.datetime.now)
     note = db.Column(db.String(255)) # 备注
 
 
@@ -54,5 +54,5 @@ class BaseMember(db.Model):
     sheji = db.Column(db.Integer)  # 是否设计师
     admin = db.Column(db.Integer)  # 是否管理员
     perm = db.Column(db.Integer)  # 角色
-    creation_data = db.Column(db.DateTime, default=datetime.datetime.now)
+    create_time = db.Column(db.DateTime, default=datetime.datetime.now)
     note = db.Column(db.String(255)) # 备注

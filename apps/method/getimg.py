@@ -6,6 +6,7 @@
 @Email   : zhigeoffice@gmail.com
 @Software: PyCharm
 """
+import time
 
 from exts import db
 from models.img import ImgSheji
@@ -19,14 +20,12 @@ def getshejitulist(req):
     sort = req['sort']
     # 设置查询条件
     sql = db.session.query(ImgSheji)
-    sort = ImgSheji.addtime.desc() if sort else ImgSheji.addtime.asc()
+    sort = ImgSheji.creation_data.desc() if sort else ImgSheji.create_time.asc()
     ## 获取数据数量
     count = sql.count()
     ## 设置查询区间
     start = (page-1) * pages
     end = start + pages
-    print(page,'-',pages)
-    print(start,'-',end)
     sql = sql.order_by(sort).slice(start,end)
     #开始查询并返回数据
     imgs = sql.all()
@@ -34,4 +33,5 @@ def getshejitulist(req):
         'imgs':to_dict(imgs),
         'count':count
     }
+    time.sleep(1.5)
     return restful.success(data=data)

@@ -2,6 +2,8 @@
   "name": "fuzhuangxitong",
   "version": "1.0.0",
   "filepath": "F:/files",
+  "reimgsize": 0.05,
+  "reimgpath": "IMG/compress",
   "imgpath": {
     "shejitu":"IMG/shejitu",
     "shengchantu":"IMG/shengchantu",

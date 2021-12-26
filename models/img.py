@@ -24,7 +24,8 @@ class ImgYuanshi(db.Model):
     height = db.Column(db.Integer)  # 高
     num = db.Column(db.String(255))  # 编码
     creation_data = db.Column(db.DateTime, default=datetime.datetime.now)  # 加入时间
-    compress = db.column(db.String(100)) # 压缩图位置
+    compress_path = db.Column(db.String(100)) # 压缩图位置
+    compress_link = db.Column(db.String(100)) # 压缩图位置
     note = db.Column(db.String(255)) # 备注
 
 
@@ -40,8 +41,9 @@ class ImgSheji(db.Model):
     height = db.Column(db.Integer)  # 高
     num = db.Column(db.String(30))  # 编码
     member_id = db.Column(db.Integer)  # 设计员工ID
-    creation_data = db.Column(db.DateTime, default=datetime.datetime.now)  # 加入时间
-    compress = db.column(db.String(100)) # 压缩图位置
+    create_time = db.Column(db.DateTime, default=datetime.datetime.now)  # 加入时间
+    compress_path = db.Column(db.String(100)) # 压缩图位置
+    compress_link = db.Column(db.String(100)) # 压缩图位置
     note = db.Column(db.String(255)) # 备注
 
 
@@ -59,11 +61,12 @@ class ImgShengchan(db.Model):
     height = db.Column(db.Integer)  # 高
     num = db.Column(db.String(30))  # 编码
     member_id = db.Column(db.Integer)  # 设计员工ID
-    creation_data = db.Column(db.DateTime, default=datetime.datetime.now)  # 加入时间
+    create_time = db.Column(db.DateTime, default=datetime.datetime.now)  # 加入时间
     size = db.Column(db.String(30))  # 尺寸
     materials = db.Column(db.String(30))  # 材料
     label = db.Column(db.String(255))  # 标签
-    compress = db.column(db.String(100)) # 压缩图位置
+    compress_path = db.Column(db.String(100)) # 压缩图位置
+    compress_link = db.Column(db.String(100)) # 压缩图位置
     note = db.Column(db.String(255)) # 备注
 
 
@@ -81,11 +84,12 @@ class ImgXiaoguo(db.Model):
     height = db.Column(db.Integer)  # 高
     num = db.Column(db.String(30))  # 编码
     member_id = db.Column(db.Integer)  # 设计员工ID
-    creation_data = db.Column(db.DateTime, default=datetime.datetime.now)  # 加入时间
+    create_time = db.Column(db.DateTime, default=datetime.datetime.now)  # 加入时间
     size = db.Column(db.String(30))  # 尺寸
     materials = db.Column(db.String(30))  # 材料
     label = db.Column(db.String(255))  # 标签
-    compress = db.column(db.String(100)) # 压缩图位置
+    compress_path = db.Column(db.String(100)) # 压缩图位置
+    compress_link = db.Column(db.String(100)) # 压缩图位置
     note = db.Column(db.String(255)) # 备注
 
 
@@ -104,9 +108,10 @@ class ImgYuanshiShengchan(db.Model):
     height = db.Column(db.Integer)  # 高
     num = db.Column(db.String(30))  # 编码
     member_id = db.Column(db.Integer)  # 设计员工ID
-    creation_data = db.Column(db.DateTime, default=datetime.datetime.now)  # 加入时间
+    create_time = db.Column(db.DateTime, default=datetime.datetime.now)  # 加入时间
     size = db.Column(db.String(30))  # 尺寸
     materials = db.Column(db.String(30))  # 材料
     label = db.Column(db.String(255))  # 标签
-    compress = db.column(db.String(100)) # 压缩图位置
+    compress_path = db.Column(db.String(100)) # 压缩图位置
+    compress_link = db.Column(db.String(100)) # 压缩图位置
     note = db.Column(db.String(255)) # 备注

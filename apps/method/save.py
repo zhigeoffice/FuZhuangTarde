@@ -8,6 +8,7 @@
 """
 import os
 import time
+import math
 from threading import Thread
 
 import cv2
@@ -17,16 +18,28 @@ from exts import db
 from models.img import ImgSheji
 from sundry.upload import files
 from utiles import restful
+from apps.method.reimgsize import resize
 
 def set_wh(model, img_id):
     img_info = db.session.query(model).filter(model.num == img_id).first()
     img = cv2.imread(img_info.path)
-    try:
-        img_info.width = img.shape[0]  # 宽
-        img_info.height = img.shape[1]  # 高
-        db.session.commit()
-    except:
-        pass
+
+    resize_path,resize_link = resize(img_info,'shejitu',img)
+    img_info.width = img.shape[0]  # 宽
+    img_info.height = img.shape[1]  # 高
+    img_info.compress_path = resize_path  # 高
+    img_info.compress_link = resize_link  # 高
+    db.session.commit()
+
+    # try:
+    #     resize_path,resize_link = resize(img_info,'shejitu',img)
+    #     img_info.width = img.shape[0]  # 宽
+    #     img_info.height = img.shape[1]  # 高
+    #     img_info.compress_path = resize_path  # 高
+    #     img_info.compress_link = resize_link  # 高
+    #     db.session.commit()
+    # except BaseException as e:
+    #     pass
 
 def start_set_wh(model, img_id):
     t = Thread(target=set_wh, args=(model, img_id))
@@ -49,7 +62,9 @@ def save_shejitu(file):
         filename=filename,  # 文件名
         path=os.path.join(conf.filepath,conf.path_shejitu, filename),  # 文件路径
         link=os.path.join(conf.path_shejitu, filename),  # 文件路径
-        num=img_id #编号
+        num=img_id, #编号
+        compress_path=os.path.join(conf.filepath,conf.path_shejitu, filename),
+        compress_link=os.path.join(conf.path_shejitu, filename)
     )
     db.session.add(sheji)
     db.session.commit()

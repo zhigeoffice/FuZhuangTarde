@@ -52,5 +52,13 @@ class Conf(object):
     def path_other(self):
         return self.info['imgpath']['other']
 
+    @property
+    def reimgsize(self):
+        return self.info['reimgsize']
+
+    @property
+    def reimgpath(self):
+        return self.info['reimgpath']
+
 
 conf = Conf()

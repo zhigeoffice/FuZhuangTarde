@@ -23,7 +23,7 @@ class GuizeShengchanPaiban(db.Model):
     height = db.Column(db.Integer)  # 高
     num = db.Column(db.String(30))  # 编码
     member_id = db.Column(db.Integer)  # 设计员工ID
-    creation_data = db.Column(db.DateTime, default=datetime.datetime.now)  # 加入时间
+    create_time = db.Column(db.DateTime, default=datetime.datetime.now)  # 加入时间
     size = db.Column(db.String(30))  # 尺寸
     materials = db.Column(db.String(30))  # 材料
     label = db.Column(db.String(255))  # 标签
