@@ -8,6 +8,7 @@
 """
 import os
 import sys
+from sundry.get_system_info import getSystemInfo
 
 # # 基本配置
 DEBUG = True
@@ -30,6 +31,9 @@ UPLOADS_DEFAULT_DEST = 'uploads'
 BASE_PATH = os.path.dirname(os.path.realpath(sys.executable))
 if not os.path.isdir(os.path.join(BASE_PATH, 'templates')):
     BASE_PATH = os.path.abspath(os.path.dirname(__file__))
-CONF_PATH = os.path.join(BASE_PATH, 'conf', 'conf.json')
 
 PROJECT_NAME = 'OURAN_FUZHUANGDD'
+
+CONF_PATH = os.path.join(BASE_PATH, 'conf', 'conf-win-kaifa.json')
+if getSystemInfo():
+    CONF_PATH = os.path.join(BASE_PATH, 'conf', 'conf.json')
