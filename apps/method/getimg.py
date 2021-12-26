@@ -20,7 +20,7 @@ def getshejitulist(req):
     sort = req['sort']
     # 设置查询条件
     sql = db.session.query(ImgSheji)
-    sort = ImgSheji.creation_data.desc() if sort else ImgSheji.create_time.asc()
+    sort = ImgSheji.create_time.desc() if sort else ImgSheji.create_time.asc()
     ## 获取数据数量
     count = sql.count()
     ## 设置查询区间

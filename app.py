@@ -16,7 +16,6 @@ from flask_migrate import Migrate
 
 migrate = Migrate()
 
-
 def caeate_app():
     fun_app = Flask(__name__,
                     template_folder=os.path.join(config.BASE_PATH, 'templates'),
